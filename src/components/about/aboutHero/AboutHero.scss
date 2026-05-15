@@ -1,0 +1,92 @@
+@use '../../home/home-section' as home;
+
+/* Lovable: relative pt-32 pb-20 gradient-hero overflow-hidden */
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  color: var(--searn-color-hero-text);
+}
+
+/* top-20 right-20 w-80 h-80 bg-accent/20 blur-3xl */
+.about-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(64px);
+}
+
+.about-hero__orb--one {
+  top: 5rem;
+  right: 5rem;
+  width: 20rem;
+  height: 20rem;
+  background: var(--searn-color-orb-accent);
+  animation-delay: 0s;
+}
+
+/* bottom-10 left-10 w-64 h-64 bg-highlight/30 blur-3xl, delay 1s */
+.about-hero__orb--two {
+  bottom: 2.5rem;
+  left: 2.5rem;
+  width: 16rem;
+  height: 16rem;
+  background: var(--searn-color-orb-highlight);
+  animation-delay: 1s;
+}
+
+.about-hero__container {
+  @include home.home-section-container;
+
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--searn-color-hero-text);
+}
+
+/* px-4 py-1.5 text-base font-medium mb-6 bg-white/10 border-white/20 */
+.about-hero__badge {
+  display: inline-block;
+  margin-bottom: var(--space-6);
+  padding: .375rem var(--space-4);
+  border: 1px solid var(--searn-color-hero-badge-border);
+  border-radius: 9999px;
+  background: var(--searn-color-hero-badge-background);
+  backdrop-filter: blur(4px);
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--searn-color-hero-text);
+}
+
+/* text-4xl md:text-6xl mb-6 max-w-4xl leading-tight font-bold */
+.about-hero__title {
+  max-width: 56rem;
+  margin: 0 auto var(--space-6);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--searn-color-hero-text);
+
+  @media (width >= 768px) {
+    font-size: var(--text-6xl);
+  }
+}
+
+.about-hero__title-highlight {
+  color: var(--searn-color-highlight);
+}
+
+/* text-lg md:text-xl max-w-3xl text-primary-foreground/85 */
+.about-hero__description {
+  max-width: 48rem;
+  margin: 0 auto;
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: rgb(255 255 255 / .85);
+
+  @media (width >= 768px) {
+    font-size: var(--text-xl);
+  }
+}

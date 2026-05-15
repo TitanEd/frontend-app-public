@@ -1,0 +1,113 @@
+.faq-accordion-item {
+  border-bottom: 1px solid var(--searn-color-border);
+}
+
+.faq-accordion-item--last {
+  border-bottom: 0;
+}
+
+/* Prevent global h3 scale (text-2xl/3xl) from affecting trigger */
+h3.faq-accordion-item__heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.faq-accordion-item__trigger {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4);
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: var(--searn-color-page-foreground);
+  cursor: pointer;
+  transition: color .2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--searn-color-primary);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--searn-color-focus-ring);
+  }
+}
+
+/* Question text: scales up to 30px / 500 on desktop */
+.faq-accordion-item__question {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.5;
+
+  @media (width >= 640px) {
+    font-size: var(--text-lg);
+    line-height: 1.45;
+  }
+
+  @media (width >= 768px) {
+    font-size: var(--text-xl);
+    line-height: 1.4;
+  }
+
+  @media (width >= 1024px) {
+    font-size: 1.875rem;
+    line-height: 1.35;
+  }
+}
+
+.faq-accordion-item__chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--searn-color-muted);
+  transition: color .2s ease;
+}
+
+.faq-accordion-item__trigger:hover .faq-accordion-item__chevron,
+.faq-accordion-item__trigger:focus-visible .faq-accordion-item__chevron {
+  color: var(--searn-color-primary);
+}
+
+.faq-accordion-item__panel {
+  overflow: hidden;
+}
+
+.faq-accordion-item__panel--open {
+  animation: faq-accordion-down .2s ease-out;
+}
+
+/* Lovable AccordionContent: text-sm leading-relaxed — block global p md:text-lg */
+p.faq-accordion-item__answer {
+  margin: 0;
+  padding: 0 var(--space-4) var(--space-4);
+  font-size: var(--text-sm);
+  line-height: 1.625;
+  color: var(--searn-color-muted);
+
+  @media (width >= 768px) {
+    font-size: var(--text-sm);
+    line-height: 1.625;
+  }
+}
+
+@keyframes faq-accordion-down {
+  from {
+    opacity: 0;
+    transform: translateY(-.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

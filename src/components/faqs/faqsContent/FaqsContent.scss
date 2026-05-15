@@ -1,0 +1,32 @@
+.faqs-content__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+/* Lovable: text-center text-muted-foreground py-12 (base 16px) */
+p.faqs-content__empty {
+  margin: 0;
+  padding: var(--space-12) 0;
+  font-size: var(--text-base);
+  line-height: 1.75;
+  text-align: center;
+  color: var(--searn-color-muted);
+
+  @media (width >= 768px) {
+    font-size: var(--text-base);
+    line-height: 1.75;
+  }
+}
+
+.faqs-content__empty-link {
+  font-size: inherit;
+  font-weight: 500;
+  color: var(--searn-color-primary);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}

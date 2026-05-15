@@ -1,0 +1,19 @@
+@use '../../components/home/home-section' as home;
+
+.request-to-join-page {
+  width: 100%;
+  margin-top: calc(-1 * var(--header-height));
+}
+
+/* Lovable: flex-1 py-16 max-w-3xl */
+.request-to-join-main {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background: var(--searn-color-page-background);
+}
+
+.request-to-join-main__container {
+  @include home.home-section-container;
+
+  max-width: 48rem;
+}

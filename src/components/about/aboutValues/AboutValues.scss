@@ -1,0 +1,21 @@
+@use '../../home/home-section' as home;
+
+/* Lovable: py-20 */
+.about-values {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: var(--searn-color-page-background);
+}
+
+.about-values__container {
+  @include home.home-section-container;
+}
+
+.about-values__grid {
+  display: grid;
+  gap: var(--space-8);
+
+  @media (width >= 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

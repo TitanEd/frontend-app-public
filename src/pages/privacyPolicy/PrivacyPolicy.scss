@@ -1,0 +1,21 @@
+@use '../../components/home/home-section' as home;
+
+.privacy-policy-page {
+  width: 100%;
+  margin-top: calc(-1 * var(--header-height));
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.privacy-policy-main {
+  flex: 1;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background: var(--searn-color-page-background);
+}
+
+.privacy-policy-main__container {
+  @include home.home-section-container;
+
+  max-width: 48rem;
+}

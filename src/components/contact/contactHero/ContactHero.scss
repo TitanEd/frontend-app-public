@@ -1,0 +1,67 @@
+@use '../../home/home-section' as home;
+
+/* Lovable: pt-32 pb-16 gradient-hero */
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: var(--space-16);
+  color: var(--searn-color-hero-text);
+}
+
+/* top-10 right-10 w-72 h-72 bg-accent/20 blur-3xl */
+.contact-hero__orb {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: var(--searn-color-orb-accent);
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.contact-hero__container {
+  @include home.home-section-container;
+
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--searn-color-hero-text);
+}
+
+.contact-hero__badge {
+  display: inline-block;
+  margin-bottom: var(--space-6);
+  padding: .375rem var(--space-4);
+  border: 1px solid var(--searn-color-hero-badge-border);
+  border-radius: 9999px;
+  background: var(--searn-color-hero-badge-background);
+  backdrop-filter: blur(4px);
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--searn-color-hero-text);
+}
+
+.contact-hero__title {
+  margin: 0 auto var(--space-6);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--searn-color-hero-text);
+
+  @media (width >= 768px) {
+    font-size: var(--text-6xl);
+  }
+}
+
+/* text-lg max-w-2xl */
+.contact-hero__description {
+  max-width: 42rem;
+  margin: 0 auto;
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: rgb(255 255 255 / .85);
+}

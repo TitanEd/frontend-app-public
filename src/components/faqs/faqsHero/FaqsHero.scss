@@ -1,0 +1,136 @@
+@use '../../home/home-section' as home;
+
+.faqs-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: var(--space-12);
+  color: var(--searn-color-hero-text);
+}
+
+.faqs-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(64px);
+}
+
+.faqs-hero__orb--accent {
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 18rem;
+  height: 18rem;
+  background: var(--searn-color-orb-accent);
+}
+
+.faqs-hero__orb--highlight {
+  bottom: 0;
+  left: 2.5rem;
+  width: 14rem;
+  height: 14rem;
+  background: var(--searn-color-orb-highlight);
+  animation-delay: 1s;
+}
+
+.faqs-hero__container {
+  @include home.home-section-container;
+
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--searn-color-hero-text);
+}
+
+.faqs-hero__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--searn-color-hero-badge-border);
+  border-radius: var(--radius-2xl);
+  background: var(--searn-color-hero-badge-background);
+  backdrop-filter: blur(4px);
+}
+
+.faqs-hero__icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--searn-color-hero-text);
+}
+
+/* Lovable: text-4xl md:text-5xl mb-4 leading-tight (no text-6xl) */
+h1.faqs-hero__title {
+  margin: 0 auto var(--space-4);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--searn-color-hero-text);
+
+  @media (width >= 768px) {
+    font-size: var(--text-5xl);
+  }
+}
+
+p.faqs-hero__description {
+  max-width: 36rem;
+  margin: 0 auto var(--space-8);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: rgb(255 255 255 / .85);
+
+  @media (width >= 768px) {
+    font-size: var(--text-lg);
+  }
+}
+
+.faqs-hero__search-wrap {
+  position: relative;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.faqs-hero__search-icon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-4);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--searn-color-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+/* Lovable: text-base md:text-sm, h-12, pl-12 */
+.faqs-hero__search-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  padding: var(--space-2) var(--space-3) var(--space-2) 3rem;
+  border: 0;
+  border-radius: calc(var(--radius) - 2px);
+  background: rgb(255 255 255 / .95);
+  color: var(--searn-color-page-foreground);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--text-base);
+  line-height: 1.5;
+
+  &::placeholder {
+    color: var(--searn-color-muted);
+    font-size: var(--text-base);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-lg), 0 0 0 2px var(--searn-color-focus-ring);
+  }
+
+  @media (width >= 768px) {
+    font-size: var(--text-sm);
+
+    &::placeholder {
+      font-size: var(--text-sm);
+    }
+  }
+}

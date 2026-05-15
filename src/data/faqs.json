@@ -1,0 +1,81 @@
+[
+  {
+    "id": "getting-started",
+    "category": "Getting Started",
+    "items": [
+      {
+        "id": "who-can-register",
+        "question": "Who can register on SEARN?",
+        "answer": "SEARN is open to regulators, NRA staff, training providers, and authorized WHO partners across the South-East Asia region."
+      },
+      {
+        "id": "platform-free",
+        "question": "Is the platform free to use?",
+        "answer": "Yes, SEARN is provided free of charge to eligible regulators and NRA staff as part of WHO's regional capacity-building mandate."
+      },
+      {
+        "id": "how-to-sign-up",
+        "question": "How do I sign up?",
+        "answer": "Click 'Sign up' from the login page, complete your details, and verify your mobile via OTP. Your NRA administrator will approve your role assignment."
+      }
+    ]
+  },
+  {
+    "id": "trainings-certificates",
+    "category": "Trainings & Certificates",
+    "items": [
+      {
+        "id": "trainings-assigned",
+        "question": "How are trainings assigned?",
+        "answer": "Trainings can be self-enrolled from the catalogue, or assigned by your NRA Manager based on identified capability gaps."
+      },
+      {
+        "id": "get-certificate",
+        "question": "How do I get my certificate?",
+        "answer": "Once a training is marked Completed and your proof of completion is uploaded and verified, your certificate is automatically added to your Regulatory Passport."
+      },
+      {
+        "id": "retake-training",
+        "question": "Can I retake a training?",
+        "answer": "Yes, most trainings can be revisited at any time. Your latest completion status is recorded against your competency record."
+      }
+    ]
+  },
+  {
+    "id": "capability-gaps",
+    "category": "Capability Gaps",
+    "items": [
+      {
+        "id": "what-is-capability-gap",
+        "question": "What is a capability gap?",
+        "answer": "A capability gap is a defined area where a regulator's current competency is below the proficiency level required for their role. SEARN maps each gap to specific learning activities."
+      },
+      {
+        "id": "who-assigns-gaps",
+        "question": "Who assigns capability gaps?",
+        "answer": "Your NRA Manager assigns capability gaps and tracks your progress as you complete the linked competencies and activities."
+      }
+    ]
+  },
+  {
+    "id": "account-security",
+    "category": "Account & Security",
+    "items": [
+      {
+        "id": "forgot-password",
+        "question": "I forgot my password — what do I do?",
+        "answer": "Click 'Forgot password?' on the login page and follow the email recovery link to set a new password."
+      },
+      {
+        "id": "data-secure",
+        "question": "Is my data secure?",
+        "answer": "Yes. We use industry-standard encryption, role-based access controls, and follow WHO data-protection guidelines. See our Privacy Policy for details."
+      },
+      {
+        "id": "organization-sso",
+        "question": "Can I sign in with my organization SSO?",
+        "answer": "Yes — use the 'Login with WHO' button on the login page if your organization has SSO enabled."
+      }
+    ]
+  }
+]
