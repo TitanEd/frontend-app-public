@@ -108,13 +108,11 @@ const RequestToJoinForm = ({ onSuccess }) => {
     if (Object.keys(nextErrors).length > 0) {
       if (!applicantType) {
         showToast({
-          variant: 'error',
           title: formatMessage(messages.toastApplicantTypeTitle),
           description: formatMessage(messages.toastApplicantTypeDescription),
         });
       } else {
         showToast({
-          variant: 'error',
           title: formatMessage(messages.toastMissingTitle),
           description: formatMessage(messages.toastMissingDescription),
         });
