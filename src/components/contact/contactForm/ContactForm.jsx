@@ -72,7 +72,6 @@ const ContactForm = () => {
     }
 
     showToast({
-      variant: 'success',
       title: formatMessage(messages.toastSuccessTitle),
       description: formatMessage(messages.toastSuccessDescription),
     });

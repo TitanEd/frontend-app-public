@@ -2,76 +2,99 @@
 import {
   createContext, useCallback, useContext, useMemo, useState,
 } from 'react';
+import { createPortal } from 'react-dom';
 
-import ToastContainer from './ToastContainer';
+import './ToastProvider.scss';
 
-const ToastContext = createContext(null);
+const ToastCloseIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M18 6 6 18" />
+    <path d="m6 6 12 12" />
+  </svg>
+);
 
-let toastIdCounter = 0;
+const CLOSE_ANIMATION_MS = 260;
+const AUTO_DISMISS_MS = 4000;
 
-const nextToastId = () => {
-  toastIdCounter += 1;
-  return `toast-${toastIdCounter}`;
-};
+const ToastContext = createContext({
+  showToast: () => {},
+});
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
 
   const removeToast = useCallback((id) => {
-    setToasts((prev) => prev.filter((toast) => toast.id !== id));
+    setToasts((prev) => prev.filter((item) => item.id !== id));
   }, []);
 
-  const dismiss = useCallback((id) => {
-    setToasts((prev) => prev.map((toast) => (
-      toast.id === id ? { ...toast, exiting: true } : toast
+  const closeToast = useCallback((id) => {
+    setToasts((prev) => prev.map((item) => (
+      item.id === id ? { ...item, isClosing: true } : item
     )));
-
     window.setTimeout(() => {
       removeToast(id);
-    }, 320);
+    }, CLOSE_ANIMATION_MS);
   }, [removeToast]);
 
-  const showToast = useCallback(({
-    variant = 'success',
-    title,
-    description,
-    duration = 5000,
-  }) => {
-    const id = nextToastId();
+  const showToast = useCallback(({ title, description }) => {
+    const id = `${Date.now()}-${Math.random()}`;
     setToasts((prev) => [...prev, {
       id,
-      variant,
       title,
       description,
-      exiting: false,
+      isClosing: false,
     }]);
+    window.setTimeout(() => {
+      closeToast(id);
+    }, AUTO_DISMISS_MS);
+  }, [closeToast]);
 
-    if (duration > 0) {
-      window.setTimeout(() => dismiss(id), duration);
-    }
+  const value = useMemo(() => ({ showToast }), [showToast]);
 
-    return id;
-  }, [dismiss]);
-
-  const value = useMemo(() => ({
-    showToast,
-    dismiss,
-  }), [showToast, dismiss]);
+  const toastViewport = (
+    <ol className="app-toast-viewport" tabIndex={-1}>
+      {toasts.map((toast) => (
+        <li
+          className={`app-toast ${toast.isClosing ? 'is-closing' : ''}`}
+          key={toast.id}
+          role="status"
+        >
+          <div>
+            <p className="app-toast__title">{toast.title}</p>
+            <p className="app-toast__description">{toast.description}</p>
+          </div>
+          <button
+            type="button"
+            className="app-toast__close"
+            aria-label="Close"
+            onClick={() => closeToast(toast.id)}
+          >
+            <ToastCloseIcon />
+          </button>
+        </li>
+      ))}
+    </ol>
+  );
 
   return (
     <ToastContext.Provider value={value}>
       {children}
-      <ToastContainer toasts={toasts} onDismiss={dismiss} />
+      {typeof document !== 'undefined' ? createPortal(toastViewport, document.body) : null}
     </ToastContext.Provider>
   );
 };
 
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (!context) {
-    throw new Error('useToast must be used within a ToastProvider');
-  }
-  return context;
-};
+export const useToast = () => useContext(ToastContext);
 
 export default ToastContext;

@@ -5,7 +5,7 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import { Container } from '@openedx/paragon';
 import { Link } from 'react-router-dom';
 
-import { FOOTER_LOGO_SRC } from '../../utils/brandAssets';
+import BrandLogo from '../brandLogo/BrandLogo';
 import { publicRoutePath } from '../../utils/publicPath';
 import messages from './messages';
 import './SiteFooter.scss';
@@ -34,9 +34,9 @@ const SiteFooter = () => {
         <div className="site-footer__grid">
           <div className="site-footer__column site-footer__brand-col">
             <Link className="site-footer__logo-link" to={publicRoutePath()}>
-              <img
+              <BrandLogo
+                variant="footer"
                 className="site-footer__logo"
-                src={FOOTER_LOGO_SRC}
                 alt={formatMessage(messages.logoAlt)}
               />
             </Link>

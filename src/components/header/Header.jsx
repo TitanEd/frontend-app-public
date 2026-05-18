@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 
-import { HEADER_LOGO_SRC } from '../../utils/brandAssets';
+import BrandLogo from '../brandLogo/BrandLogo';
 import { publicRoutePath, withPublicPrefix } from '../../utils/publicPath';
 import messages from './messages';
 import './Header.scss';
@@ -45,9 +45,9 @@ const Header = () => {
       <Container fluid className="header__inner">
         <div className="header__row">
           <Link className="header__logo-link" to={publicRoutePath()} onClick={closeMobile}>
-            <img
+            <BrandLogo
+              variant="header"
               className="header__logo"
-              src={HEADER_LOGO_SRC}
               alt={formatMessage(messages.logoAlt)}
             />
           </Link>
