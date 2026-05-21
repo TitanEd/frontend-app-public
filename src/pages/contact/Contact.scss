@@ -1,0 +1,5 @@
+/* Full-bleed hero under fixed header (same pattern as about) */
+.contact-page {
+  width: 100%;
+  margin-top: calc(-1 * var(--header-height));
+}

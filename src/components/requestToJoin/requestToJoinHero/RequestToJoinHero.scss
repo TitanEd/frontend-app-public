@@ -1,0 +1,82 @@
+@use '../../home/home-section' as home;
+
+/* Lovable: pt-32 pb-12 gradient-hero */
+.request-join-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-bottom: var(--space-12);
+  color: var(--searn-color-hero-text);
+}
+
+.request-join-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(64px);
+}
+
+.request-join-hero__orb--accent {
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 18rem;
+  height: 18rem;
+  background: var(--searn-color-orb-accent);
+}
+
+.request-join-hero__orb--highlight {
+  bottom: 0;
+  left: 2.5rem;
+  width: 14rem;
+  height: 14rem;
+  background: var(--searn-color-orb-highlight);
+  animation-delay: 1s;
+}
+
+.request-join-hero__container {
+  @include home.home-section-container;
+
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: var(--searn-color-hero-text);
+}
+
+.request-join-hero__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--searn-color-hero-badge-border);
+  border-radius: var(--radius-2xl);
+  background: var(--searn-color-hero-badge-background);
+  backdrop-filter: blur(4px);
+}
+
+.request-join-hero__icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--searn-color-hero-text);
+}
+
+.request-join-hero__title {
+  margin: 0 auto var(--space-4);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--searn-color-hero-text);
+
+  @media (width >= 768px) {
+    font-size: var(--text-5xl);
+  }
+}
+
+.request-join-hero__description {
+  max-width: 36rem;
+  margin: 0 auto;
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: rgb(255 255 255 / .85);
+}

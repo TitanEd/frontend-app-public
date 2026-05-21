@@ -1,0 +1,178 @@
+/* Lovable: rounded-2xl p-8 shadow-sm space-y-6 */
+.request-join-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  border: 1px solid var(--searn-color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--searn-color-card-background);
+  box-shadow: var(--shadow-sm);
+}
+
+.request-join-form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.request-join-form__legend {
+  margin-bottom: var(--space-3);
+  padding: 0;
+}
+
+.request-join-form__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--searn-color-page-foreground);
+}
+
+.request-join-form__required {
+  color: #DC2626;
+}
+
+/* flex-col sm:flex-row gap-4 */
+.request-join-form__radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  @media (width >= 640px) {
+    flex-direction: row;
+  }
+}
+
+.request-join-form__radio-option {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--searn-color-border);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--searn-color-page-background);
+  cursor: pointer;
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--searn-color-page-foreground);
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+.request-join-form__radio-option--selected {
+  border-color: var(--searn-color-primary);
+  background: var(--searn-color-badge-tint);
+}
+
+.request-join-form__radio-input {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: var(--searn-color-primary);
+  cursor: pointer;
+}
+
+.request-join-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.request-join-form__input,
+.request-join-form__select,
+.request-join-form__textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--searn-color-border);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--searn-color-page-background);
+  color: var(--searn-color-page-foreground);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  transition: border-color .2s ease, box-shadow .2s ease;
+
+  &::placeholder {
+    color: var(--searn-color-muted);
+  }
+
+  &:focus-visible {
+    border-color: var(--searn-color-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--searn-color-page-background), 0 0 0 4px var(--searn-color-focus-ring);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+    background: var(--searn-color-secondary-surface);
+  }
+}
+
+.request-join-form__input,
+.request-join-form__select {
+  height: 2.5rem;
+}
+
+.request-join-form__select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C6B9C' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 1rem;
+  font-size: var(--text-sm);
+}
+
+.request-join-form__textarea {
+  min-height: 5rem;
+  height: auto;
+  resize: vertical;
+  font-size: var(--text-sm);
+}
+
+.request-join-form__input--error,
+.request-join-form__select.request-join-form__input--error,
+.request-join-form__textarea.request-join-form__input--error {
+  border-color: #DC2626;
+}
+
+.request-join-form__error {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: #DC2626;
+}
+
+/* Lovable: w-full h-14 gradient-accent */
+.request-join-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: var(--space-2) var(--space-8);
+  border: 0;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-accent);
+  color: var(--searn-color-on-primary);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: box-shadow .3s ease, transform .3s ease;
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-lg), 0 0 0 2px var(--searn-color-page-background), 0 0 0 4px var(--searn-color-focus-ring);
+  }
+}

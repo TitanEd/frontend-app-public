@@ -1,0 +1,63 @@
+@use '../home-section' as homeSection;
+
+/* Lovable: py-20 bg-muted, intro mb-12, grid 2/4/8 gap-6 */
+.home-partners {
+  padding-block: var(--space-10);
+  background: var(--searn-color-secondary-surface);
+}
+
+.home-partners__container {
+  @include homeSection.home-section-container;
+}
+
+.home-partners__intro {
+  margin-bottom: var(--space-12);
+  text-align: center;
+}
+
+.home-partners__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--searn-color-page-foreground);
+
+  @media (width >= 768px) {
+    font-size: var(--text-4xl);
+  }
+}
+
+.home-partners__description {
+  max-width: 42rem;
+  margin: 0 auto;
+  font-size: var(--font-size-body);
+  line-height: 1.75;
+  color: var(--searn-color-muted);
+}
+
+.home-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+@media (width >= 768px) {
+  .home-partners__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (width >= 992px) {
+  .home-partners__grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Beat global h2 scale from index.scss */
+.home-partners h2.home-partners__title {
+  @media (width >= 768px) {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+}

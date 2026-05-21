@@ -1,0 +1,25 @@
+@use '../../home/home-section' as home;
+
+/* Lovable: py-16 bg-muted/30 */
+.about-stats {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background: var(--searn-color-section-muted);
+}
+
+.about-stats__container {
+  @include home.home-section-container;
+}
+
+/* grid md:grid-cols-3 gap-8 max-w-4xl mx-auto */
+.about-stats__grid {
+  display: grid;
+  gap: var(--space-8);
+  max-width: 56rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (width >= 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

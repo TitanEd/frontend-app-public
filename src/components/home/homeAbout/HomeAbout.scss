@@ -1,0 +1,50 @@
+@use '../home-section' as homeSection;
+
+/* Lovable: py-24 bg-muted, intro mb-16, grid md:3 gap-8 max-w-5xl */
+.home-about {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-16);
+  background: var(--searn-color-secondary-surface);
+}
+
+.home-about__container {
+  @include homeSection.home-section-container;
+
+  position: relative;
+  z-index: 1;
+}
+
+.home-about__intro {
+  max-width: 48rem;
+  margin: 0 auto var(--space-16);
+  text-align: center;
+}
+
+.home-about__description {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: var(--searn-color-muted);
+}
+
+.home-about__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+@media (width >= 768px) {
+  .home-about__features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Override global h3 inside feature cards */
+.home-about .home-feature-card__title {
+  @media (width >= 768px) {
+    font-size: var(--text-xl);
+  }
+}

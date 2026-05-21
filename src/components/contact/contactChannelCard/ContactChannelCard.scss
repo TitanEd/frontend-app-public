@@ -1,0 +1,55 @@
+/* Lovable: rounded-2xl p-6 shadow-sm hover lift */
+.contact-channel-card {
+  padding: var(--space-6);
+  border: 1px solid var(--searn-color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--searn-color-card-background);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.contact-channel-card:hover,
+.contact-channel-card:focus-within {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-.25rem);
+}
+
+.contact-channel-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-xl);
+  background: var(--searn-color-badge-tint);
+}
+
+.contact-channel-card__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--searn-color-primary);
+}
+
+.contact-channel-card__title {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.75;
+  color: var(--searn-color-primary);
+}
+
+.contact-channel-card__value {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--searn-color-page-foreground);
+}
+
+.contact-channel-card__subtitle {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--searn-color-muted);
+}

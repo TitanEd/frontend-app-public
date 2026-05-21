@@ -1,0 +1,8 @@
+@mixin home-section-container {
+  width: 100%;
+  max-width: var(--header-container-max-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-4);
+  padding-left: var(--space-4);
+}

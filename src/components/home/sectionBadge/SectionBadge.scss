@@ -1,0 +1,19 @@
+.home-section-badge {
+  display: inline-block;
+  margin: 0 0 var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-radius: 9999px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.home-section-badge--primary {
+  background: var(--searn-color-badge-tint);
+  color: var(--searn-color-primary);
+}
+
+.home-section-badge--muted {
+  background: var(--searn-color-badge-tint);
+  color: var(--searn-color-primary);
+}

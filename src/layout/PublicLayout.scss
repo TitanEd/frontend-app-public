@@ -1,0 +1,35 @@
+.public-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--searn-color-page-background);
+}
+
+.public-layout__skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.public-layout__skip-link:focus {
+  left: var(--space-4);
+  top: calc(var(--header-height) + var(--space-4));
+  width: auto;
+  height: auto;
+  padding: var(--space-2) var(--space-4);
+  z-index: 100;
+  background-color: var(--searn-color-primary);
+  color: var(--searn-color-on-primary);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.public-layout__main {
+  flex: 1;
+  width: 100%;
+  padding-top: var(--header-height);
+}

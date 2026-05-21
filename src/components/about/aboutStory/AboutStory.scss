@@ -1,0 +1,42 @@
+@use '../../home/home-section' as home;
+
+/* Lovable: py-20 */
+.about-story {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: var(--searn-color-page-background);
+}
+
+.about-story__container {
+  @include home.home-section-container;
+
+  max-width: 56rem;
+}
+
+/* text-3xl md:text-4xl text-primary mb-6 text-center */
+.about-story__title {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--searn-color-primary);
+
+  @media (width >= 768px) {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* space-y-5 text-lg text-muted-foreground leading-relaxed */
+.about-story__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about-story__paragraph {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.625;
+  color: var(--searn-color-muted);
+}
