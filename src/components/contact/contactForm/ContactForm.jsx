@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 import { faClock, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useIntl } from '@edx/frontend-platform/i18n';
+import { useMutation } from '@tanstack/react-query';
 import { useCallback, useState } from 'react';
 
+import { submitContactUs } from '../../../api/contactUsApi';
 import { useToast } from '../../toast/ToastContext';
+import { showToastFromApi } from '../../../utils/showApiToast';
 import messages from '../../../pages/contact/messages';
 import './ContactForm.scss';
 
@@ -18,11 +22,12 @@ const EMPTY_FORM = {
 
 const FIELD_KEYS = ['name', 'email', 'subject', 'message'];
 
-const ContactForm = () => {
+const ContactForm = ({ onSuccess }) => {
   const { formatMessage } = useIntl();
   const { showToast } = useToast();
   const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState({});
+  const mutation = useMutation({ mutationFn: submitContactUs });
 
   const labelMessages = {
     name: messages.labelName,
@@ -71,12 +76,24 @@ const ContactForm = () => {
       return;
     }
 
-    showToast({
-      title: formatMessage(messages.toastSuccessTitle),
-      description: formatMessage(messages.toastSuccessDescription),
+    mutation.mutate(form, {
+      onSuccess: () => {
+        const email = form.email.trim();
+        setForm(EMPTY_FORM);
+        setErrors({});
+        onSuccess(email);
+      },
+      onError: (error) => {
+        showToastFromApi(showToast, {
+          success: false,
+          data: error?.response?.data,
+          fallback: {
+            errorTitle: formatMessage(messages.toastErrorTitle),
+            errorDescription: formatMessage(messages.toastErrorDescription),
+          },
+        });
+      },
     });
-    setForm(EMPTY_FORM);
-    setErrors({});
   };
 
   const renderField = ({
@@ -164,9 +181,9 @@ const ContactForm = () => {
               multiline: true,
             })}
 
-            <button type="submit" className="contact-form__submit">
+            <button type="submit" className="contact-form__submit" disabled={mutation.isPending}>
               <FontAwesomeIcon icon={faPaperPlane} className="contact-form__submit-icon" aria-hidden="true" />
-              {formatMessage(messages.submitButton)}
+              {formatMessage(mutation.isPending ? messages.submitButtonSubmitting : messages.submitButton)}
             </button>
           </form>
         </div>

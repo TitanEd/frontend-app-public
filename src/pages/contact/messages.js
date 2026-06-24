@@ -101,6 +101,11 @@ const messages = defineMessages({
     defaultMessage: 'Send Message',
     description: 'Contact form submit button label',
   },
+  submitButtonSubmitting: {
+    id: 'app.contact.form.submitting',
+    defaultMessage: 'Sending…',
+    description: 'Submit button label while the message is being sent',
+  },
   validationRequired: {
     id: 'app.contact.form.validation.required',
     defaultMessage: '{fieldLabel} is required',
@@ -111,15 +116,25 @@ const messages = defineMessages({
     defaultMessage: 'Email Address must be a valid email',
     description: 'Validation message when email format is invalid',
   },
-  toastSuccessTitle: {
-    id: 'app.contact.toast.success.title',
-    defaultMessage: 'Message sent!',
-    description: 'Toast title after contact form is submitted successfully',
+  toastErrorTitle: {
+    id: 'app.contact.toast.error.title',
+    defaultMessage: 'Message not sent',
+    description: 'Toast title when the contact form could not be submitted',
   },
-  toastSuccessDescription: {
-    id: 'app.contact.toast.success.description',
-    defaultMessage: 'We\'ll get back to you within 2 business days.',
-    description: 'Toast description after contact form is submitted successfully',
+  toastErrorDescription: {
+    id: 'app.contact.toast.error.description',
+    defaultMessage: 'Something went wrong. Please try again.',
+    description: 'Toast description when the contact form could not be submitted',
+  },
+  successTitle: {
+    id: 'app.contact.success.title',
+    defaultMessage: 'Message sent!',
+    description: 'Success state heading after the contact form is submitted',
+  },
+  successBody: {
+    id: 'app.contact.success.body',
+    defaultMessage: 'Thank you for reaching out. We\'ve received your message from {email} and will get back to you within 2 business days.',
+    description: 'Success state body after the contact form is submitted',
   },
 });
 

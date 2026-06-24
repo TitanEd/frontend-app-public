@@ -1,0 +1,46 @@
+/* Lovable: rounded-2xl p-10 text-center */
+.contact-success {
+  padding: var(--space-10);
+  border: 1px solid var(--searn-color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--searn-color-card-background);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.contact-success__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto var(--space-6);
+  border-radius: 9999px;
+  background: var(--searn-color-badge-tint);
+}
+
+.contact-success__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--searn-color-primary);
+}
+
+.contact-success__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--searn-color-primary);
+}
+
+.contact-success__body {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: 1.625;
+  color: var(--searn-color-muted);
+}
+
+.contact-success__email {
+  font-weight: 600;
+  color: var(--searn-color-page-foreground);
+}
