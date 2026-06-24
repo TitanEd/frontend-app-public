@@ -11,6 +11,11 @@ const messages = defineMessages({
     defaultMessage: 'Login',
     description: 'Login button label in the public header',
   },
+  dashboard: {
+    id: 'app.header.actions.dashboard',
+    defaultMessage: 'Dashboard',
+    description: 'Dashboard button label in the public header when user is logged in',
+  },
   siteNavLandmark: {
     id: 'app.header.nav.landmark',
     defaultMessage: 'Site',
