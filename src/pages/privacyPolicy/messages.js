@@ -8,7 +8,7 @@ const messages = defineMessages({
   },
   heroLastUpdated: {
     id: 'app.privacyPolicy.hero.lastUpdated',
-    defaultMessage: 'Last updated: April 21, 2026',
+    defaultMessage: 'Last updated: June 21, 2026',
     description: 'Privacy policy page last updated date',
   },
   intro: {

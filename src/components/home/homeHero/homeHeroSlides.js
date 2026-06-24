@@ -18,7 +18,7 @@ export const HOME_HERO_SLIDES = [
     titleMessage: messages.heroSlide2Title,
     descriptionMessage: messages.heroSlide2Description,
     ctaMessage: messages.heroSlide2Cta,
-    ctaTo: `${publicRoutePath()}#about`,
+    ctaTo: publicRoutePath('request-to-join'),
   },
   {
     id: 'slide-3',

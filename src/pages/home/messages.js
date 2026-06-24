@@ -28,7 +28,7 @@ const messages = defineMessages({
   },
   heroSlide2Cta: {
     id: 'app.home.hero.slide2.cta',
-    defaultMessage: 'Learn More',
+    defaultMessage: 'Get Started',
     description: 'Hero carousel slide 2 CTA label',
   },
   heroSlide3Title: {

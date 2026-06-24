@@ -8,7 +8,7 @@ const messages = defineMessages({
   },
   heroLastUpdated: {
     id: 'app.termsOfService.hero.lastUpdated',
-    defaultMessage: 'Last updated: April 21, 2026',
+    defaultMessage: 'Last updated: June 21, 2026',
     description: 'Terms of service page last updated date',
   },
   intro: {
@@ -113,7 +113,7 @@ const messages = defineMessages({
   },
   footerEmail: {
     id: 'app.termsOfService.footer.email',
-    defaultMessage: 'legal@searn-network.org',
+    defaultMessage: 'contact@searn-network.org',
     description: 'Terms of service footer contact email',
   },
   footerSuffix: {

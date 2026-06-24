@@ -81,12 +81,12 @@
 .site-footer p.site-footer__tagline {
   margin: 0 0 var(--space-6);
   padding: 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   line-height: 1.5;
   color: var(--searn-color-footer-text-muted);
 
   @media (width >= 768px) {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     line-height: 1.5;
   }
 }
@@ -111,7 +111,7 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  font-size: var(--font-size-body);
+  font-size: var(--text-base);
   line-height: 1.75;
   color: var(--searn-color-footer-text-muted);
   text-decoration: none;
