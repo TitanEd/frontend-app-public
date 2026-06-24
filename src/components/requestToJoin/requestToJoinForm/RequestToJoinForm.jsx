@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useIntl } from '@edx/frontend-platform/i18n';
+import { useMutation } from '@tanstack/react-query';
 import { useCallback, useMemo, useState } from 'react';
 
+import { submitPendingRequest } from '../../../api/pendingRequestsApi';
 import ALL_COUNTRIES from '../../../data/allCountries';
 import SEARN_COUNTRIES from '../../../data/searnCountries';
 import messages from '../../../pages/requestToJoin/messages';
 import { useToast } from '../../toast/ToastContext';
+import { showToastFromApi } from '../../../utils/showApiToast';
 import './RequestToJoinForm.scss';
 
 const APPLICANT_NRA = 'NRA';
@@ -29,6 +32,7 @@ const RequestToJoinForm = ({ onSuccess }) => {
   const [applicantType, setApplicantType] = useState('');
   const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState({});
+  const mutation = useMutation({ mutationFn: submitPendingRequest });
 
   const countryList = useMemo(() => (
     applicantType === APPLICANT_NRA ? SEARN_COUNTRIES : ALL_COUNTRIES
@@ -120,7 +124,30 @@ const RequestToJoinForm = ({ onSuccess }) => {
       return;
     }
 
-    onSuccess(form.contactEmail.trim());
+    mutation.mutate(
+      {
+        applicantType,
+        organisationName: form.orgName,
+        country: form.country,
+        website: form.website,
+        contactName: form.contactName,
+        contactEmail: form.contactEmail,
+        description: form.description,
+      },
+      {
+        onSuccess: () => onSuccess(form.contactEmail.trim()),
+        onError: (error) => {
+          showToastFromApi(showToast, {
+            success: false,
+            data: error?.response?.data,
+            fallback: {
+              errorTitle: formatMessage(messages.toastErrorTitle),
+              errorDescription: formatMessage(messages.toastErrorDescription),
+            },
+          });
+        },
+      },
+    );
   };
 
   const renderRequiredLabel = (labelMessage) => (
@@ -308,8 +335,8 @@ const RequestToJoinForm = ({ onSuccess }) => {
         {renderFieldError('description', 'description')}
       </div>
 
-      <button type="submit" className="request-join-form__submit">
-        {formatMessage(messages.submitButton)}
+      <button type="submit" className="request-join-form__submit" disabled={mutation.isPending}>
+        {formatMessage(mutation.isPending ? messages.submitButtonSubmitting : messages.submitButton)}
       </button>
     </form>
   );

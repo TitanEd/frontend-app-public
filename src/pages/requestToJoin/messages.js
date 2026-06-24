@@ -76,6 +76,11 @@ const messages = defineMessages({
     defaultMessage: 'Submit Request',
     description: 'Submit button label',
   },
+  submitButtonSubmitting: {
+    id: 'app.requestToJoin.form.submitting',
+    defaultMessage: 'Submitting…',
+    description: 'Submit button label while the request is being sent',
+  },
   requiredMark: {
     id: 'app.requestToJoin.form.requiredMark',
     defaultMessage: '*',
@@ -115,6 +120,16 @@ const messages = defineMessages({
     id: 'app.requestToJoin.toast.missing.description',
     defaultMessage: 'Please fill in all required fields.',
     description: 'Toast description when required fields are missing',
+  },
+  toastErrorTitle: {
+    id: 'app.requestToJoin.toast.error.title',
+    defaultMessage: 'Submission failed',
+    description: 'Toast title when the onboarding request could not be submitted',
+  },
+  toastErrorDescription: {
+    id: 'app.requestToJoin.toast.error.description',
+    defaultMessage: 'Something went wrong. Please try again.',
+    description: 'Toast description when the onboarding request could not be submitted',
   },
   successTitle: {
     id: 'app.requestToJoin.success.title',

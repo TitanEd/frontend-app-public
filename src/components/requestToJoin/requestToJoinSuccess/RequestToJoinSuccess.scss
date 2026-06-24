@@ -47,7 +47,7 @@
 
 .request-join-success__link {
   font-weight: 600;
-  color: var(--searn-color-primary);
+  color: var(--searn-color-primary) !important;
   text-decoration: none;
 
   &:hover,
