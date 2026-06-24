@@ -1,12 +1,13 @@
 import { getConfig } from '@edx/frontend-platform';
 
-import { withPublicPrefix } from './publicPath';
+import searnLogo from '../images/searn-logo-C2I_G7k-.png';
+import searnLogoWhite from '../images/searn-logo-white-DePvLxSn.png';
 
-/** Local header logo used when LOGO_URL is missing or fails to load. */
-export const HEADER_LOGO_FALLBACK = withPublicPrefix('/assets/searn-logo-C2I_G7k-.png');
+/** Bundled header logo used when LOGO_URL is missing or fails to load. */
+export const HEADER_LOGO_FALLBACK = searnLogo;
 
-/** Local footer logo used when LOGO_WHITE_URL is missing or fails to load. */
-export const FOOTER_LOGO_FALLBACK = withPublicPrefix('/assets/searn-logo-white-DePvLxSn.png');
+/** Bundled footer logo used when LOGO_WHITE_URL is missing or fails to load. */
+export const FOOTER_LOGO_FALLBACK = searnLogoWhite;
 
 /** @deprecated Use HEADER_LOGO_FALLBACK */
 export const HEADER_LOGO_SRC = HEADER_LOGO_FALLBACK;
