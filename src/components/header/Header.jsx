@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getConfig } from '@edx/frontend-platform';
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { Container } from '@openedx/paragon';
+import { AppContext } from '@edx/frontend-platform/react';
 import {
-  useCallback, useEffect, useId, useState,
+  useCallback, useContext, useEffect, useId, useState,
 } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,10 +17,18 @@ import './Header.scss';
 
 const Header = () => {
   const { formatMessage } = useIntl();
+  const { authenticatedUser } = useContext(AppContext);
   const [mobileOpen, setMobileOpen] = useState(false);
   const panelId = useId();
-  const { LOGIN_URL: loginUrlFromConfig = '' } = getConfig();
+  const config = getConfig();
+  const { LOGIN_URL: loginUrlFromConfig = '', LMS_BASE_URL: lmsBaseUrl = '' } = config;
+  const isLoggedIn = authenticatedUser !== null;
   const loginHref = loginUrlFromConfig || withPublicPrefix('/login');
+  const dashboardHref = `${lmsBaseUrl}/dashboard`;
+  const actionHref = isLoggedIn ? dashboardHref : loginHref;
+  const actionLabel = isLoggedIn
+    ? formatMessage(messages.dashboard)
+    : formatMessage(messages.login);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
   const toggleMobile = useCallback(() => setMobileOpen((v) => !v), []);
@@ -59,10 +68,10 @@ const Header = () => {
 
           <div className="header__desktop-actions d-none d-lg-flex align-items-center">
             <a
-              href={loginHref}
+              href={actionHref}
               className="header__login-btn btn-primary-border"
             >
-              {formatMessage(messages.login)}
+              {actionLabel}
             </a>
           </div>
 
@@ -116,11 +125,11 @@ const Header = () => {
               <div className="header__mobile-actions">
                 <div className="header__mobile-login-wrap">
                   <a
-                    href={loginHref}
+                    href={actionHref}
                     className="header__login-btn header__login-btn--mobile btn-primary-border"
                     onClick={closeMobile}
                   >
-                    {formatMessage(messages.login)}
+                    {actionLabel}
                   </a>
                 </div>
               </div>
